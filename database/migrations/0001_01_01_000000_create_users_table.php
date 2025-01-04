@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('profile');
-            $table->longText('about_me');
-            $table->string('role')->default(1)->comment('0:admin,1:users');
+            $table->string('profile')->nullable();
+            $table->longText('about_me')->nullable();
+            $table->string('role')->default(1)->comment('0:admin,1:users')->nullable();
             $table->string('facebook')->nullable();
             $table->string('linkend')->nullable();
             $table->timestamp('email_verified_at')->nullable();

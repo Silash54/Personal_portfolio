@@ -24,8 +24,7 @@
                                         <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                                         <p class="text-center small">Enter your Email & password to login</p>
                                     </div>
-                                    <!-- Start Form for Laravel -->
-                                    <form method="POST" action="{{ route('login_post') }}" class="row g-3 needs-validation" novalidate>
+                                    <form method="POST" action="{{ route('login_post') }}" class="row g-3 needs-validation" >
                                         @csrf
                                         <div class="col-12">
                                             <label for="email" class="form-label">Email</label>
