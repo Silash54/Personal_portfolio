@@ -27,8 +27,8 @@
                     class="fas fa-bars"></span> </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="0">Register</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="1">Login</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}" data-scroll-nav="0">Register</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}" data-scroll-nav="1">Login</a> </li>
                     
                 </ul>
             </div>
@@ -36,12 +36,12 @@
     </nav>
     <!-- End Navbar -->
     <!-------Banner Start------->
-    <section class="banner" data-scroll-index='0'>
+    <section class="banner" >
         @include('frontend.main')
     </section>
     <!-------Banner End------->
     <!-------About End------->
-    <section class="about section-padding prelative" data-scroll-index='1'>
+    <section class="about section-padding prelative">
         <div class="container">
             @include('frontend.Layout.project')
         </div>
@@ -66,28 +66,28 @@
     </section>
     <!-------Video End------->
     <!-------Features Start------->
-    <section class="feature section-padding" data-scroll-index='2'>
+    <section class="feature section-padding" >
         <div class="container">
             @include('frontend.Layout.skill')
         </div>
     </section>
     <!-------Features End------->
     <!-------Team Start------->
-    <section class="team section-padding" data-scroll-index='3'>
+    <section class="team section-padding" >
         <div class="container">
            @include('frontend.Layout.experience')
         </div>
     </section>
     <!-------Team End------->
     <!-------Testimonial Start------->
-    <section class="testimonial section-padding" data-scroll-index='4'>
+    <section class="testimonial section-padding">
         <div class="container">
             @include('frontend.Layout.education')
         </div>
     </section>
     <!-------Testimonial End------->
     <!-------FAQ Start------->
-    <section class="faq section-padding prelative" data-scroll-index='5'>
+    <section class="faq section-padding prelative" >
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -140,7 +140,7 @@
     </section>
     <!-------FAQ End------->
     <!-------Contact Start------->
-    <section class="contact section-padding" data-scroll-index='6'>
+    <section class="contact section-padding">
         <div class="container">
             @include('frontend.Layout.contact')
         </div>
