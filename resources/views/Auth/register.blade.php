@@ -50,7 +50,6 @@
                                                 required>
                                             <div class="invalid-feedback">Please, enter your name!</div>
                                         </div>
-
                                         <div class="col-12">
                                             <label for="yourEmail" class="form-label">Your Email</label>
                                             <input type="email" name="email" class="form-control" id="yourEmail"
