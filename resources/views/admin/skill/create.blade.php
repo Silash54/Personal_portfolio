@@ -2,6 +2,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Create Skill</h5>
+            <a href="{{ route('skill.index') }}" class="btn btn-primary m-auto">Back</a>
             <form class="row g-3" action="{{ route('skill.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">

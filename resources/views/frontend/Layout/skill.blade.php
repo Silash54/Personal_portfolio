@@ -10,29 +10,12 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
                         <div class="media-body text-right media-right-margin">
-                            <h5>Fast Processing</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididugnt ut labore</p>
+                            @foreach ($skill as $skill)
+                            <h5>{{ $skill->title }}</h5>
+                            <p>{{ $skill->description }}</p>
+                            @endforeach
                         </div>
                         <div class="media-right icon-border"> <span class="fa fa-bolt"
-                                aria-hidden="true"></span> </div>
-                    </div>
-                    <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="media-body text-right media-right-margin">
-                            <h5>Low Power Consuming</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididugnt ut labore</p>
-                        </div>
-                        <div class="media-right icon-border"> <span class="fa fa-battery-full"
-                                aria-hidden="true"></span> </div>
-                    </div>
-                    <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="media-body text-right media-right-margin">
-                            <h5>Wifi Compatibility</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididugnt ut labore</p>
-                        </div>
-                        <div class="media-right icon-border"> <span class="fa fa-wifi"
                                 aria-hidden="true"></span> </div>
                     </div>
                 </div>

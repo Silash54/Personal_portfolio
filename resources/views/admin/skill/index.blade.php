@@ -2,9 +2,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">My Skills</h5>
-            <div>
-                <a href="{{ route('skill.create') }}" class="btn bnt-info">Add Skill</a>
-            </div>
+                <a href="{{ route('skill.create') }}" class="btn bnt-primary">Add Skill</a>
             <table class="table table-hover">
                 <thead>
                     @include('message._message')
@@ -18,8 +16,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    
                         @forelse ($skill as $index=>$value)
+                        
+                        <tr>
                         <td>{{ ++$index }}</td>
                             <td>{{ $value->title }}</td>
                             <td>{{ $value->description }}</td>
@@ -27,9 +27,8 @@
                                 <img src="{{ asset($value->image) }}" alt="{{ $value->image }}" width="120">
                             </td>
                         @empty
-                            
-                        @endforelse
                     </tr>
+                        @endforelse
                 </tbody>
             </table>
         </div>

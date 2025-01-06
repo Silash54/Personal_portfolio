@@ -17,13 +17,26 @@ class AuthController extends Controller
     public function login_post(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
             'email' => 'required|email',
-            'password'=>'required'
+            'password' => 'required',
         ]);
-        $user=User::where('email',$request->email);
-        return$user;
+    
+        // Attempt to log in the user with the provided credentials
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            $user = Auth::user(); // Get the authenticated user
+    
+            // Redirect based on the user's role
+            if ($user->role == 0) {
+                return redirect()->route('dashboard');
+            } else {
+                return redirect()->route('home');
+            }
+        } else {
+            // Authentication failed
+            return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
+        }
     }
+    
     public function register()
     {
         return view('Auth.register');
@@ -47,7 +60,7 @@ class AuthController extends Controller
 {
     // Log out the authenticated user
     Auth::logout();
-    return redirect()->route('home')->with('success', 'User logged out successfully.');
+    return redirect()->route('home');
 }
 
 }
