@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -42,4 +43,11 @@ class AuthController extends Controller
             ]);
             return redirect()->route('login')->with('success','User register successfully!');
     }
+    public function logOut(Request $request)
+{
+    // Log out the authenticated user
+    Auth::logout();
+    return redirect()->route('home')->with('success', 'User logged out successfully.');
+}
+
 }
