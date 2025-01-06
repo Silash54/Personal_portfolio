@@ -62,7 +62,7 @@ class SkillController extends Controller
     public function edit(string $id)
     {
         $skill=Skill::find($id);
-        return view('admin.skill.edit','skill');
+        return view('admin.skill.edit',compact('skill'));
     }
 
     /**
