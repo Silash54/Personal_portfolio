@@ -77,7 +77,7 @@
         </div>
         <!-- End Page Title -->
         <section class="section dashboard">
-        f{{ $slot }}
+        {{ $slot }}
         </section>
     </main>
     <!-- End #main -->

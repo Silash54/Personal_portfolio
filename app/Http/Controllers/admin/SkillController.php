@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SkillController extends Controller
 {
@@ -12,7 +14,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        return view('admin.skill.index');
+        $skill=Skill::all();
+        return view('admin.skill.index',compact('skill'));
     }
 
     /**
@@ -20,7 +23,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.skill.create');
     }
 
     /**
@@ -28,7 +31,21 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required|max:256'
+        ]);
+        $skill=new Skill();
+        $skill->title=$request->title;
+        $skill->description=$request->description;
+        if($request->hasFile('image')){
+            $file=$request->image;
+            $newName=time().'.'.$file->getClientOriginalExtension();
+            $file->move('images',$newName);
+            $skill->image="images/$newName";
+        }
+        $skill->save();
+        return redirect()->route('skill.index')->with('success','Skill create successfully');
     }
 
     /**
@@ -44,7 +61,8 @@ class SkillController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $skill=Skill::find($id);
+        return view('admin.skill.edit','skill');
     }
 
     /**
@@ -52,7 +70,21 @@ class SkillController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required|max:256'
+        ]);
+        $skill=new Skill();
+        $skill->title=$request->title;
+        $skill->description=$request->description;
+        if($request->hasFile('image')){
+            $file=$request->image;
+            $newName=time().'.'.$file->getClientOriginalExtension();
+            $file->move('images',$newName);
+            $skill->image="images/$newName";
+        }
+        $skill->save();
+        return redirect()->route('skill.index')->with('success','Skill update successfully');
     }
 
     /**
@@ -60,6 +92,8 @@ class SkillController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $skill=Skill::find($id);
+        $skill->delete();
+        return view('admin.skill.index',)->with('danger','Skill delete successfully');;
     }
 }
