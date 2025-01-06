@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
     <title>Pages / Register - NiceAdmin Bootstrap Template</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link
@@ -43,24 +39,34 @@
                                         <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                                         <p class="text-center small">Enter your personal details to create account</p>
                                     </div>
-                                    <form class="row g-3 needs-validation" novalidate>
+                                    <form class="row g-3 needs-validation" novalidate method="POST" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="col-12">
                                             <label for="yourName" class="form-label">Your Name</label>
                                             <input type="text" name="name" class="form-control" id="yourName"
-                                                required>
+                                                required value="{{ old('name') }}">
                                             <div class="invalid-feedback">Please, enter your name!</div>
+                                            @error('name')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
                                         <div class="col-12">
                                             <label for="yourEmail" class="form-label">Your Email</label>
                                             <input type="email" name="email" class="form-control" id="yourEmail"
-                                                required>
+                                                required value="{{ old('email') }}">
                                             <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                                            @error('email')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control"
                                                 id="yourPassword" required>
                                             <div class="invalid-feedback">Please enter your password!</div>
+                                            @error('password')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Create Account</button>

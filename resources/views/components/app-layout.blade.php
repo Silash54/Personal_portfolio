@@ -28,6 +28,9 @@
 </head>
 
 <body>
+    {{--  rashidh khan sweet alert configuration--}}
+    @include('sweetalert::alert')
+
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="d-flex align-items-center justify-content-between">

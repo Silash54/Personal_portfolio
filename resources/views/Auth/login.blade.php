@@ -32,12 +32,18 @@
                                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                                                 <input type="text" name="email" class="form-control" id="email" required>
                                                 <div class="invalid-feedback">Please enter your Email.</div>
+                                                @error('email')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control" id="yourPassword" required>
                                             <div class="invalid-feedback">Please enter your password!</div>
+                                            @error('password')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Login</button>
@@ -46,7 +52,6 @@
                                             <p class="small mb-0">Don't have an account? <a href="{{ route('register') }}">Create an account</a></p>
                                         </div>
                                     </form>
-                                    <!-- End Form -->
                                 </div>
                             </div>
                         </div>
