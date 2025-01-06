@@ -3,12 +3,11 @@
         <div class="sectioner-header text-center">
             <h3>Skills</h3>
             <span class="line"></span>
-            <p>Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem
-                faucibus, vestibulum ante in, pharetra ante.</p>
+            <p>" I am Proficient Full Stack Laravel Developer skilled in crafting dynamic web applications using Laravel for backend, and HTML, CSS, JavaScript, and Bootstrap for responsive and user-friendly frontends."</p>
         </div>
         <div class="section-content text-center">
             <div class="row">
-                <div class="col-md-4 col-sm-12">
+                <div class="col-md-6 col-sm-12">
                     <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
                         <div class="media-body text-right media-right-margin">
                             <h5>Fast Processing</h5>
@@ -37,11 +36,8 @@
                                 aria-hidden="true"></span> </div>
                     </div>
                 </div>
-                <div class="col-md-4 d-none d-md-block d-lg-block">
-                    <div class="feature-mobile"> <img src="{{ asset('frontend/images/iphone-screen-with-shadow.png') }}"
-                            class="img-fluid wow fadeInUp" /> </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
+                
+                <div class="col-md-6 col-sm-12">
                     <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
                         <div class="media-left icon-border media-right-margin"> <span
                                 class="fa fa-check-double" aria-hidden="true"></span> </div>

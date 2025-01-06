@@ -40,6 +40,6 @@ class AuthController extends Controller
                 'email'=>$request->email,
                 'password'=>Hash::make($request->password)
             ]);
-            return redirect()->route('login')->with('success','User register successfully');
+            return redirect()->route('login')->with('success','User register successfully!');
     }
 }

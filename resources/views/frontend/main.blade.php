@@ -18,8 +18,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12"> <img src="{{ asset('frontend/images/iphone-screen.png') }}"
-                    class="img-fluid wow fadeInUp" /> </div>
+            <div class="col-md-3 col-sm-12"> <img class="img-fluid rounded " src="{{ asset('frontend/images/silas.jpg') }}"
+                    /> </div>
         </div>
     </div>
 </div>
