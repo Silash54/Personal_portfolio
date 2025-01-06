@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use RealRashid\SweetAlert\Facades\Alert;
 
 
 class AuthController extends Controller
@@ -41,7 +40,6 @@ class AuthController extends Controller
                 'email'=>$request->email,
                 'password'=>Hash::make($request->password)
             ]);
-            toast('User register successfully!','success');
-            return redirect()->route('login');
+            return redirect()->route('login')->with('success','User register successfully');
     }
 }
