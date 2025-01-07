@@ -67,5 +67,24 @@ public function profile(Request $request)
     $profile=User::where('role','=',0)->first();
     return view('Auth.profile',compact('profile'));
 }
-
+public function profile_update(Request $request)
+{
+    //return $request;
+    $profile=User::where('email',$request->email)->first();
+    //return $profile;
+    $profile->name=$request->name;
+    $profile->about_me=$request->about;
+    $profile->email=$request->email;
+    $profile->facebook=$request->facebook;
+    $profile->linkend=$request->linkend;
+    $profile->password=Hash::make($request->password);
+    if($request->hasFile('profile')){
+        $file=$request->profile;
+        $newName=time().'.'.$file->getClientOriginalExtension();
+        $file->move('images',$newName);
+        $profile->profile="images/$newName";
+    }
+    $profile->save();
+    return redirect()->route('dashboard');
+}
 }

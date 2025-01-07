@@ -12,6 +12,7 @@ Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::post('/login',[AuthController::class,'login_post'])->name('login_post');
 Route::get('/register',[AuthController::class,'register'])->name('register');
 Route::get('admin/profile',[AuthController::class,'profile'])->name('profile');
+Route::post('admin/profile',[AuthController::class,'profile_update'])->name('profile_update');
 Route::post('/register',[AuthController::class,'register_post'])->name('register_post');
 Route::get('logout',[AuthController::class,'logOut'])->name('logout');
 Route::get('admin/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');

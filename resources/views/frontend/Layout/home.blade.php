@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +16,7 @@
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -75,7 +78,7 @@
     <!-------Team Start------->
     <section class="team section-padding" >
         <div class="container">
-           @include('frontend.Layout.experience')
+        @include('frontend.Layout.experience')
         </div>
     </section>
     <!-------Team End------->
@@ -145,8 +148,6 @@
             @include('frontend.Layout.contact')
         </div>
     </section>
-    <!-------Contact End------->
-    <!-------Download End------->
     <section class="download section-padding">
         <div class="container">
             <div class="row">
@@ -190,6 +191,7 @@
     <!-- scrollIt js -->
     <script src="js/scrollIt.min.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.css"></script>
     <script>
         wow = new WOW();
         wow.init();
