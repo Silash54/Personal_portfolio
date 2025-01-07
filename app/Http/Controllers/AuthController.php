@@ -62,5 +62,10 @@ class AuthController extends Controller
     Auth::logout();
     return redirect()->route('home');
 }
+public function profile(Request $request)
+{
+    $profile=User::where('role','=',0)->first();
+    return view('Auth.profile',compact('profile'));
+}
 
 }
