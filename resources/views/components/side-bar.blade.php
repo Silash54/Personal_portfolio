@@ -8,6 +8,12 @@
     <!-- End Dashboard Nav -->
     <li class="nav-heading">Pages</li>
     <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('profile') }}">
+            <i class="bi bi-person"></i>
+            <span>Profile</span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('project.index') }}">
             <i class="bi bi-caret-left-square-fill"></i>
             <span>Project</span>
@@ -20,11 +26,12 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('profile') }}">
-            <i class="bi bi-person"></i>
-            <span>Profile</span>
+        <a class="nav-link collapsed" href="{{ route('message') }}">
+            <i class="bi bi-chat-dots-fill"></i>
+            <span>Message from Client</span>
         </a>
     </li>
+    
     <!-- End Profile Page Nav -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="pages-faq.html">

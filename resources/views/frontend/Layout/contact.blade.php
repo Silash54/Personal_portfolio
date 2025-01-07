@@ -1,30 +1,41 @@
 <div class="row">
     <div class="col-md-12">
         <div class="sectioner-header text-center">
-            <h3>Contact us</h3>
+            <h3>Contact Me</h3>
             <span class="line"></span>
-            <p>Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem
-                faucibus, vestibulum ante in, pharetra ante.</p>
+            <p>For professional services in website development and mobile app development, feel free to reach out.
+                I specialize in creating modern, responsive websites and feature-rich mobile applications tailored to your needs. Whether you are looking for an e-commerce platform, a personal blog, or a custom mobile app, I can help bring your ideas
+                to life with efficient and scalable solutions. </p>
         </div>
         <div class="section-content">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8">
-                    <form id="contact_form" action="">
+                    @include('message._message')
+                    <form id="contact_form" method="POST" action="{{ route('contact') }}">
+                        @csrf
                         <div class="row">
                             <div class="col">
-                                <input type="text" id="your_name" class="form-input w-100"
-                                    name="full-name" placeholder="Full Name" required>
+                                <input type="text" id="your_name" class="form-input w-100" name="fullname"
+                                    placeholder="Full Name" required value="{{ old('fullname') }}">
+                                    @error('fullname')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                             </div>
                             <div class="col">
-                                <input type="email" id="email" class="form-input w-100"
-                                    name="email" placeholder="Email" required>
+                                <input type="email" id="email" class="form-input w-100" name="email"
+                                    placeholder="Email" required value="{{ old('email') }}">
+                                    @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                             </div>
                         </div>
                         <input type="text" id="subject" class="form-input w-100" name="subject"
-                            placeholder="Subject">
+                            placeholder="Subject" value="{{ old('subject') }}">
+                            @error('subject')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                         <textarea class="form-input w-100" id="message" placeholder="Message" name="message"></textarea>
-                        <button class="btn-grad w-100 text-uppercase" type="submit"
-                            name="button">submit</button>
+                        <button class="btn-grad w-100 text-uppercase" type="submit">submit</button>
                     </form>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -40,8 +51,8 @@
                             <i class="fa fa-mobile media-left media-right-margin"></i>
                             <div class="media-body">
                                 <p class="text-uppercase">Phone</p>
-                                <p class="text-uppercase"><a class="text-white"
-                                        href="tel:+15173977100">009900990099</a> </p>
+                                <p class="text-uppercase"><a class="text-white" href="tel:+15173977100">009900990099</a>
+                                </p>
                             </div>
                         </div>
                         <div class="contact-item media">
