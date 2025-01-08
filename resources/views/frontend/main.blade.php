@@ -3,7 +3,9 @@
         <div class="row">
             <div class="col-md-8 col-sm-12">
                 <div class="banner-text">
-                    <h2 class="white">Hello World ! {{ Auth::user()->name }}</h2>
+                    <h2 class="white">Hello World ! @auth()
+                        {{ Auth::user()->name }}
+                    @endauth </h2>
                     <p class="banner-text white">{{ $profile->about_me }}</p>
                     <ul>
                         <h2 class="text-white">Connect With Me</h2>

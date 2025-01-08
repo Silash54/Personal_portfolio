@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\SkillController;
 use App\Http\Controllers\AuthController;
@@ -21,3 +22,4 @@ Route::resource('admin/project',ProjectController::class)->names('project');
 Route::resource('admin/skill',SkillController::class)->names('skill');
 Route::post('frontend/contact',[ContactController::class,'contact'])->name('contact');
 Route::get('admin/message',[DashboardController::class,'message'])->name('message');
+Route::resource('admin/education',EducationController::class)->names('education');

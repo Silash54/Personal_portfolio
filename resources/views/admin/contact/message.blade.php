@@ -18,7 +18,6 @@
                                 <p class="bg-white p-3 rounded border">{{ $value->message }}</p>
                                 <button type="submit" class="btn btn-primary">Mail</button>
                             </div>
-                            
                         @endforeach
                     </div>
                 </div>

@@ -26,6 +26,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('education.index') }}">
+            <i class="bi bi-book-half"></i>
+            <span>Education</span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('message') }}">
             <i class="bi bi-chat-dots-fill"></i>
             <span>Message from Client</span>
