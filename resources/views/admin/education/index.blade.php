@@ -11,6 +11,7 @@
                         <th scope="col">Level</th>
                         <th scope="col">Start Date</th>
                         <th scope="col">End Date</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -21,10 +22,10 @@
                             <td>{{ $item->level }}</td>
                             <td>{{ $item->start }}</td>
                             <td>{{ $item->end }}</td>
+                            <td><img src="{{ asset($item->image) }}" alt="{{ $item->image }}" width="120"></td>
                             <td>
                                 <!-- Edit Button -->
                                 <a href="{{ route('education.edit', $item->id) }}" class="btn btn-success mb-2">Edit</a>
-
                                 <!-- Delete Form -->
                                 <form action="{{ route('education.destroy', $item->id) }}" method="POST"
                                     style="display:inline;">
@@ -37,6 +38,7 @@
 
                         </tr>
                     @empty
+                    <td colspan="7" class="text-danger">No Data found</td>
                     @endforelse
                 </tbody>
             </table>

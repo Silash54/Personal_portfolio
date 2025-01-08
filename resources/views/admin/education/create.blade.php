@@ -8,7 +8,7 @@
                             <h5 class="card-title">Create Education</h5>
                             <a href="{{ route('education.index') }}" class="btn btn-sm btn-primary ">Back</a>
                         </div>
-                        <form method="POST" action="{{ route('education.store') }}">
+                        <form method="POST" action="{{ route('education.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
                                 <label for="level" class="col-sm-2 col-form-label">Level <span class="text-danger">*</span> </label>
@@ -33,6 +33,15 @@
                                 <div class="col-sm-10">
                                     <input type="date" class="form-control" name="end" value="{{ old('end') }}" required>
                                     @error('end')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputimage" class="col-sm-2 col-form-label">Image <span class="text-danger">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="image" value="{{ old('image') }}" required>
+                                    @error('image')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

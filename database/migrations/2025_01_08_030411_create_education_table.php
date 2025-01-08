@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('level');
             $table->date('start')->nullable();
             $table->date('end')->nullable();
+            $table->string('image')->nullable();
+            $table->string('status')->default('pending')->comment('pending,approved')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

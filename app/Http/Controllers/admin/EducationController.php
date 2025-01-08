@@ -38,12 +38,18 @@ class EducationController extends Controller
             'end'=>'required|date',
             
         ]);
-        Education::create([
-            'level'=>$request->level,
-            'start'=>$request->start,
-            'end'=>$request->end,
-            'user_id'=>Auth::user()->id
-        ]);
+        $education=new Education();
+        $education->level=$request->level;
+        $education->start=$request->start;
+        $education->end=$request->end;
+        $education->user_id=Auth::user()->id;
+        if($request->hasFile('image')){
+            $file=$request->image;
+            $newName=time().'.'.$file->getClientOriginalExtension();
+            $file->move('images',$newName);
+            $education->image="images/$newName";
+        }
+        $education->save();
         return redirect()->route('education.index')->with('success','Education record save');
     }
 
