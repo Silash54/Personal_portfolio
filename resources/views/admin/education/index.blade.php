@@ -35,7 +35,6 @@
                                         onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
                                 </form>
                             </td>
-
                         </tr>
                     @empty
                     <td colspan="7" class="text-danger">No Data found</td>
