@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('role')->default(1)->comment('0:admin,1:users')->nullable();
             $table->string('facebook')->nullable();
             $table->string('linkend')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

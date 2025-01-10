@@ -24,7 +24,6 @@ class AuthController extends Controller
         // Attempt to log in the user with the provided credentials
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user(); // Get the authenticated user
-    
             // Redirect based on the user's role
             if ($user->role == 0) {
                 return redirect()->route('dashboard');

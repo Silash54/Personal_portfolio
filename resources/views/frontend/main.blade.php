@@ -5,47 +5,96 @@
                 <ul class="list-unstyled">
                     <h4 class="text-white">Connect With Me</h4>
                     <li class="fw-bold">
-                        <a href="{{ $profile->facebook }}" target="_blank" class="text-decoration-none">
-                            <i class="fa-brands fa-square-facebook fa-2x"></i> Facebook
-                        </a>
+                        @auth
+                        @if (!empty($profile->facebook))
+                            <a href="{{ $profile->facebook }}" target="_blank" class="text-decoration-none">
+                                <i class="fa-brands fa-square-facebook fa-2x"></i> Facebook
+                            </a>
+                        @endif
+                    @endauth
+                    
                     </li>
                     <li>
-                        <a href="{{ $profile->linkedin }}" target="_blank" class="text-decoration-none">
-                            <i class="fa-brands fa-linkedin fa-2x"></i> LinkedIn
-                        </a>
+                        @auth
+                            @if (!@empty($profile->linkend))
+                            <a href="{{ $profile->linkedin }}" target="_blank" class="text-decoration-none">
+                                <i class="fa-brands fa-linkedin fa-2x"></i> LinkedIn
+                            </a>
+                            @endif
+                        @endauth
                     </li>
                 </ul>
                 
             </div>
-            <div class="col-md-4 col-sm-12">
-                <div id="image-preview"
-                    style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 2px solid #ddd;">
-                    <img id="preview-avatar" src="{{ asset($profile->profile) }}" alt="{{ $profile->profile }}"
-                        style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="d-flex flex-column align-items-center" style="gap: 20px;">
+                <!-- Profile Image -->
+                <div id="image-preview" style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 2px solid #ddd;">
+                    @auth
+                        @if (!empty($profile->profile))
+                        <img id="preview-avatar" src="{{ asset($profile->profile) }}" alt="{{ $profile->profile }}" style="width: 100%; object-fit: cover;">
+                        @endif
+                    @endauth
                 </div>
-                <div class="banner-text p-3 d-flex flex-column justify-content-around h-50">
-                    <div>
+            
+                <!-- Profile Details -->
+                <div class="banner-text mt-3 text-center">
+                    <div class="d-flex align-items-center justify-content-center mb-2" style="gap: 8px;">
                         <i class="fa-regular fa-user"></i>
-                        <span class="px-2">{{ Auth::user()->name }}</span>
+                        <span>
+                            @if (!empty($profile->name))
+                                {{ $profile->name }}
+                            @else
+                                <span>Silas</span>
+                            @endif
+                        </span>
                     </div>
-                    <div class="d-flex align-items-center">
-                        <i class="fa-regular fa-envelope me-2"></i>
-                        <span class="px-2">{{ Auth::user()->email }}</span>
+                    <div class="d-flex align-items-center justify-content-center mb-2" style="gap: 8px;">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>
+                            @if (!empty($profile->email))
+                                {{ $profile->email }}
+                            @else
+                                <span>Silasraii144@gmail.com</span>
+                            @endif
+                        </span>
                     </div>
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center justify-content-center" style="gap: 8px;">
                         <i class="fa-solid fa-phone"></i>
+                        <span>
+                            @if (!empty($profile->phone))
+                                {{ $profile->phone }}
+                            @else
+                                <span>9805367874</span>
+                            @endif
+                        </span>
                     </div>
                 </div>
-                
             </div>
-            <div class=" col-md-5 col-sm-12">
-                <h2>Hello World ! @auth()
-                    {{ Auth::user()->name }}
-                @endauth </h2>
-                <p>{{ $profile->about_me }}</p>
-                <a href="" class="btn btn-success">Download CV</a>
-                <a href="" class="btn btn-success">Hire Me!</a>
+            <div class="ms-3 col-md-5 col-sm-12 d-flex flex-column justify-content-between align-items-start" style="height: 100%;">
+                <h2>Hello World! 
+                    @auth
+                        @if (Auth::check())
+                            {{ Auth::user()->name }}
+                        @else
+                            <span>Rai Silas</span>
+                        @endif
+                    @endauth
+                </h2>
+                <p>
+                    @auth
+                        @if (!empty($profile->about_me))
+                            {{ $profile->about_me }}
+                        @else
+                            <span>No about me information available.</span>
+                        @endif
+                    @endauth
+                </p>
+                <div>
+                    <a href="{{ route('download.cv') }}" class="btn btn-success me-2">Download CV</a>
+                    <a href="#" class="btn btn-success">Hire Me!</a>
+                </div>
             </div>
+            
         </div>
     </div>
 </div>

@@ -25,3 +25,4 @@ Route::resource('admin/skill',SkillController::class)->names('skill');
 Route::post('frontend/contact',[ContactController::class,'contact'])->name('contact');
 Route::get('admin/message',[DashboardController::class,'message'])->name('message');
 Route::resource('admin/education',EducationController::class)->names('education');
+Route::get('download-cv',[DashboardController::class,'cv'])->name('download.cv');

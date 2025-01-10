@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -23,23 +21,30 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand navbar-logo" href="#"> <img src="{{ asset('frontend/images/logo.png') }}" alt="logo"
-                    class="logo-1"> </a>
+            <a class="navbar-brand navbar-logo" href="#"> <img src="{{ asset('frontend/images/logo.png') }}"
+                    alt="logo" class="logo-1"> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
                     class="fas fa-bars"></span> </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}" data-scroll-nav="0">Register</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}" data-scroll-nav="1">Login</a> </li>
-                    
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}"
+                            data-scroll-nav="0">Register</a> </li>
+                    @if (Auth::check())
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}"
+                                data-scroll-nav="1">Logout</a> </li>
+                    @else
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}"
+                                data-scroll-nav="1">Login</a> </li>
+                    @endif
+
                 </ul>
             </div>
         </div>
     </nav>
     <!-- End Navbar -->
     <!-------Banner Start------->
-    <section class="banner" >
+    <section class="banner">
         @include('frontend.main')
     </section>
     <!-------Banner End------->
@@ -49,40 +54,16 @@
             @include('frontend.Layout.project')
         </div>
     </section>
-    <!-------About End------->
-    <!-------Video Start------->
-    <section class="video-section prelative text-center white">
-        <div class="section-padding video-overlay">
-            <div class="container">
-                <h3>Watch Now</h3>
-                <i class="fa fa-play" id="video-icon" aria-hidden="true"></i>
-                <div class="video-popup">
-                    <div class="video-src">
-                        <div class="iframe-src">
-                            <iframe src="https://www.youtube.com/embed/Ku52zNnft8k?rel=0&amp;showinfo=0"
-                                allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-------Video End------->
-    <!-------Features Start------->
-    <section class="feature section-padding" >
+    <section class="feature section-padding">
         <div class="container">
             @include('frontend.Layout.skill')
         </div>
     </section>
-    <!-------Features End------->
-    <!-------Team Start------->
-    <section class="team section-padding" >
+    <section class="team section-padding">
         <div class="container">
-        @include('frontend.Layout.experience')
+            @include('frontend.Layout.experience')
         </div>
     </section>
-    <!-------Team End------->
-    <!-------Testimonial Start------->
     <section class="testimonial section-padding">
         <div class="container">
             @include('frontend.Layout.education')
@@ -90,7 +71,7 @@
     </section>
     <!-------Testimonial End------->
     <!-------FAQ Start------->
-    <section class="faq section-padding prelative" >
+    <section class="faq section-padding prelative">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -102,23 +83,6 @@
                     </div>
                     <div class="section-content">
                         <div class="row">
-                            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.2s">
-                                <h4>Nam tellus felis, dignissim quis dui ?</h4>
-                                <p>Suspendisse fermentum placerat enim, at pellentesque augue. Nullam elit est,
-                                    ultricies et tellus ac, euismod placerat orci. Donec commodo.</p>
-                            </div>
-                            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.2s">
-                                <h4>Mauris scelerisque, dui non faucibus vulputate ?</h4>
-                                <p>Sed tempus in neque ac rhoncus. Phasellus vehicula, erat tempor malesuada egestas,
-                                    mauris tellus malesuada erat, at vestibulum nulla ex et lectus. Nullam elit est,
-                                    ultricies et tellus ac, euismod placerat orci.</p>
-                            </div>
-                            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.4s">
-                                <h4>Nullam elit est, ultricies et tellus ac ?</h4>
-                                <p>Ut vestibulum euismod aliquet. Quisque nec malesuada nibh. Vivamus euismod nunc eu
-                                    leo faucibus, vel elementum justo posuere. In sed varius nisi. Curabitur id porta
-                                    ipsum, et vestibulum dui.</p>
-                            </div>
                             <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.4s">
                                 <h4>Suspendisse fermentum placerat enim, at pellentesque augue elit est ?</h4>
                                 <p>Vivamus euismod nunc eu leo faucibus, vel elementum justo posuere. In sed varius
@@ -148,37 +112,12 @@
             @include('frontend.Layout.contact')
         </div>
     </section>
-    <section class="download section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="sectioner-header text-center white">
-                        <h3>Download Our App</h3>
-                        <span class="line"></span>
-                        <p class="white">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce
-                            sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="section-content text-center">
-                        <ul>
-                            <li><a href="#"><img src="{{ asset('frontend/images/appstore.png') }}" class="wow fadeInUp"
-                                        data-wow-delay="0.4s" /></a></li>
-                            <li><a href="#"><img src="{{ asset('frontend/images/playstore.png') }}" class="wow fadeInUp"
-                                        data-wow-delay="0.7s" /></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-------Download End------->
     <footer class="footer-copy">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <p>2018 &copy; Applight. Website Designed by <a href="http://w3Template.com" target="_blank"
-                            rel="dofollow">W3 Template</a></p>
+                    <p>{{ date('d-m-y') }} &copy;Website Designed by Silas Rai</p>
                 </div>
             </div>
         </div>
@@ -196,7 +135,6 @@
         wow = new WOW();
         wow.init();
         $(document).ready(function(e) {
-
             $('#video-icon').on('click', function(e) {
                 e.preventDefault();
                 $('.video-popup').css('display', 'flex');
@@ -212,31 +150,24 @@
                     $('.video-popup iframe').attr('src', video_src);
                 }
             });
-
             $('.slider').bxSlider({
                 pager: false
             });
         });
-
         $(window).on("scroll", function() {
-
             var bodyScroll = $(window).scrollTop(),
                 navbar = $(".navbar");
-
             if (bodyScroll > 50) {
                 $('.navbar-logo img').attr('src', 'images/logo-black.png');
                 navbar.addClass("nav-scroll");
-
             } else {
                 $('.navbar-logo img').attr('src', 'images/logo.png');
                 navbar.removeClass("nav-scroll");
             }
-
         });
         $(window).on("load", function() {
             var bodyScroll = $(window).scrollTop(),
                 navbar = $(".navbar");
-
             if (bodyScroll > 50) {
                 $('.navbar-logo img').attr('src', 'images/logo-black.png');
                 navbar.addClass("nav-scroll");
@@ -244,9 +175,7 @@
                 $('.navbar-logo img').attr('src', 'images/logo-white.png');
                 navbar.removeClass("nav-scroll");
             }
-
             $.scrollIt({
-
                 easing: 'swing', // the easing function for animation
                 scrollTime: 900, // how long (in ms) the animation takes
                 activeClass: 'active', // class given to the active nav element
@@ -255,6 +184,7 @@
             });
         });
     </script>
+    
 </body>
 
 </html>

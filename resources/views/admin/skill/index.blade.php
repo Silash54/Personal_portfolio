@@ -16,17 +16,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
                         @forelse ($skill as $index=>$value)
-                        
                         <tr>
                         <td>{{ ++$index }}</td>
                             <td>{{ $value->title }}</td>
-                            <td>{{ $value->description }}</td>
+                            <td>{!! Str::words( $value->description,20,'...') !!}</td>
                             <td>
                                 <img src="{{ asset($value->image) }}" alt="{{ $value->image }}" width="120">
                             </td>
+                            <td>{{ ($value->status=='pending')?'pending':'approved' }}</td>
+                            <td>
+                                <a href="{{ route('skill.edit',$value->id) }}" class="btn btn-primary mb-2">Edit</a>
+                            <form action="{{ route('skill.destroy', $value->id) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+                            </form>
+                            </td>
                         @empty
+                            <span class="text-danger">No Data found</span>
                     </tr>
                         @endforelse
                 </tbody>

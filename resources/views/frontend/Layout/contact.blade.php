@@ -38,39 +38,9 @@
                         <button class="btn-grad w-100 text-uppercase" type="submit">submit</button>
                     </form>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-4">
-                    <div class="contact-info white">
-                        <div class="contact-item media">
-                            <i class="fa fa-map-marker-alt media-left media-right-margin"></i>
-                            <div class="media-body">
-                                <p class="text-uppercase">Address</p>
-                                <p class="text-uppercase">New Delhi, India</p>
-                            </div>
-                        </div>
-                        <div class="contact-item media">
-                            <i class="fa fa-mobile media-left media-right-margin"></i>
-                            <div class="media-body">
-                                <p class="text-uppercase">Phone</p>
-                                <p class="text-uppercase"><a class="text-white" href="tel:+15173977100">009900990099</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contact-item media">
-                            <i class="fa fa-envelope media-left media-right-margin"></i>
-                            <div class="media-body">
-                                <p class="text-uppercase">E-mail</p>
-                                <p class="text-uppercase"><a class="text-white"
-                                        href="mailto:abcdefg@gmail.com">yogeshsingh.now@gmail.com</a> </p>
-                            </div>
-                        </div>
-                        <div class="contact-item media">
-                            <i class="fa fa-clock media-left media-right-margin"></i>
-                            <div class="media-body">
-                                <p class="text-uppercase">Working Hours</p>
-                                <p class="text-uppercase">Mon-Fri 9.00 AM to 5.00PM.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 h-100">
+                    <h1>Google Map</h1>
+                    <div id="map"></div>
                 </div>
             </div>
         </div>

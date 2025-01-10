@@ -8,7 +8,6 @@
             <div class="row">
                 @foreach ($project as $project)
                 <div class="col-md-4">
-                    <img src="{{ asset($project->image) }}" alt="{{ $project->image }}" >
                     <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
                         <h5>{{ $project->title }}</h5>
                         <p>{{ $project->description }}</p>

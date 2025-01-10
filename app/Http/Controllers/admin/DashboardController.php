@@ -18,4 +18,13 @@ class DashboardController extends Controller
         //return $message;
         return view('admin.contact.message',compact('message'));
     }
+    public function cv()
+    {    $filePath = 'D:\laravel\Personal_portfolio\public\images\silas.pdf';
+        if (!file_exists($filePath)) {
+            return abort(404, 'File not found.');
+        }
+        $headers = ['Content-Type: application/pdf'];
+        $fileName = 'silas.pdf';
+        return response()->download($filePath, $fileName, $headers);
+    }
 }
